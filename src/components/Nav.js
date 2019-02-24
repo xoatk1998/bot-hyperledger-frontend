@@ -1,67 +1,45 @@
-import React, {Component} from 'react'
-class Nav extends Component{
-    render(){
-        return(
-            <div className="col-2 sidenav">
-                <div className="info">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <i className="fa fa-home fa-2x"></i>
-                                <span>Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i className="fa fa-user-circle fa-2x align-self-center"></i>
-                                <span>Account</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i className="fa fa-bank fa-2x align-self-center"></i>
-                                <span>Wallet</span>
-                            </a>
-                        </li>
+import React, { Component } from 'react';
+import ReactDOM from "react-dom"
+import { Route, Link, Router } from 'react-router-dom';
+
+class Navbar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            category_list: [
+                {
+                    id: 1,
+                    name: "Tai khoan cua toi",
+                    path: "/my-account",
+                },
+                {
+                    id: 2,
+                    name: "BOT",
+                    path: "/bot",
+                },
+                {
+                    id: 3,
+                    name: "Lien He",
+                    path: "/contact",
+                },
+            ]
+        }
+    }
+    render() {
+        return (
+            <div>
+                <nav className="navbar navbar-default navbar-static-top">
+                    <ul className="nav nav-pills">
+                        {/* Check the Css section for the selector */}
+                        <li><Link to="/" activeClassName="active">Part A</Link></li>
+                        <li><Link to="/" activeClassName="active">Part B</Link></li>
+                        <li><Link to="/" activeClassName="active">Part C</Link></li>
+                        <li><Link to="/" activeClassName="active">Part D</Link></li>
                     </ul>
-                    
-                </div>
-                <div className="transaction">
-                    <h5>Transaction</h5>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <i className="fa fa-money fa-2x"></i>
-                                <span>Payin</span>
-                            </a>
-                        </li>
-                        <li> 
-                            <a href="#">
-                                <i className="fa fa-exchange fa-2x"></i>
-                                <span>PayToll</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div className="introduce">
-                <h5>About</h5>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <i className="fa fa-users fa-2x"></i>
-                                <span>HyperTeam</span>
-                            </a>
-                        </li>
-                        <li> 
-                            <a href="#">
-                                <i className="fa fa-cogs fa-2x"></i>
-                                <span>PayToll</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                </nav>
             </div>
         )
     }
-}  
-export default Nav
+}
+export default Navbar;
+
