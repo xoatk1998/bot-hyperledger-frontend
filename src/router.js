@@ -2,6 +2,7 @@ import React from 'react';
 import Home from '../src/components/home'
 // import SideBar from "../src/components/nav"
 import src from '*.jpg';
+import SignIn from "../src/components/SignIn"
 const routes =[
     {
         path :'/',
@@ -9,9 +10,10 @@ const routes =[
         main: <Home />
     },
     {
-        path :'/nav',
+        path :'/signin',
         isPublic : true,
-        // main : <SideBar />
+        main : <SignIn />
+
     }
 ]
 export default routes;
