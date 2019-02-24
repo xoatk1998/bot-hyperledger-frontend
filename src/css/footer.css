@@ -1,0 +1,46 @@
+#SECTION11{
+    /* display: block; */
+    width: 1284px !important;
+    /* height: 201px !important; */
+    background-color: #EEEEEE;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0 !important;
+
+}
+.s11-div-1{
+    background-color: #24252D;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    height:67px;
+    margin: 0;
+    padding: 0;
+    padding-left: 22px;
+}
+.s11-svg{
+    margin-top: 20px;
+    margin-right: 25px;
+}
+.s11-div-2{
+    background-color: #24252D;
+    margin:0;
+    padding: 0;
+    height: 30px !important;
+    padding-top : 3px;
+
+    
+
+}
+.s11-text{
+    opacity: 1;
+    font-family: 'Open Sans';
+    color: rgba(255,255,255,0.49) !important;
+    font-weight: 400;
+    line-height: 18px;
+    font-size: 15px;
+}
+.my-4{
+    background-image:url(https://www.shareicon.net/download/2015/12/04/682448_letter.svg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
