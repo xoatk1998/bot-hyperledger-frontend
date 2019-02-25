@@ -38,9 +38,12 @@
     
     padding: 15px;
     /* overflow: scroll; */
-    background: rgb(245, 247, 249);
+    background: #fff
     border-right: 1px solid rgb(234, 234, 234);
     font-family: 'Montserrat', sans-serif;
+    
+    
+    
 }
 .sidenav ul {
     margin-bottom: 19%;
@@ -62,4 +65,28 @@ ul {
 .sidenav h5 {
     margin-bottom: 7%;
     font-weight: bold;
+}
+/* ===================================================================================================== */
+.account {
+    background-color: #eaeaea78;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Open Sans', sans-serif;
+}
+.info{
+    background-color: #fff;
+}
+
+.form-control[readonly] {
+    background-color: #fff;
+    opacity: 1;
+}
+.container-fluid.row.OwnerInfo {
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+.col-9.row.info {
+    padding-left: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
