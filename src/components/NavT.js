@@ -55,7 +55,7 @@ class NavT extends Component{
                         <li> 
                             <a href="#">
                                 <i className="fa fa-cogs fa-2x"></i>
-                                <span>PayToll</span>
+                                <span>Setting</span>
                             </a>
                         </li>
                     </ul>
