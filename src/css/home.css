@@ -65,7 +65,7 @@ ul{
 li {
     padding: 0px;
     margin: 0px;
-    /* list-style: none; */
+    list-style: outside !important;
     text-align: left;
     color: #ffffff;
     margin-bottom: 1.5rem;
