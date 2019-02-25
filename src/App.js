@@ -5,6 +5,7 @@ import Header from './components/Header'
 import NavT from './components/NavT'
 import Home from "../src/components/home"
 import './App.css';
+import Wallet from "../src/components/wallet"
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Footer from './components/footer';
 
@@ -16,9 +17,9 @@ class App extends Component {
         
         <Header />
         
-        <NavT />
+        {/* <NavT /> */}
         {/* <Home /> */}
-        
+        <Wallet />
       </div>
     );
   }

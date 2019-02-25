@@ -1,0 +1,66 @@
+.box_thongtin_sodu_ud{
+    -webkit-box-shadow: 0 0 8px rgba(141,141,141,.3);
+    -moz-box-shadow: 0 0 8px rgba(141,141,141,.3);
+    box-shadow: 0 0 8px rgba(141,141,141,.3);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 15px 20px;
+    background-color: #fff;
+    margin-top : 30px;
+
+}
+.text_tieude_all_ud {
+    font-size: 21px;
+    color: #000;
+    font-weight: 300;
+    display: block;
+    position: relative;
+    margin-bottom: 25px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.22);
+}
+.box_all_tien_user_ud {
+    display: block;
+    margin-top: 20px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 300;
+}
+.box_all_tien_user_ud {
+    display: block;
+    margin-top: 20px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 300;
+}
+.box_all_tien_user_ud {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 0;
+    color: #000;
+    font-size: 16px;
+    font-weight: 300;
+}
+.list_all_btn_ud {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+}
+em {
+    display: block;
+    font-style: normal;
+    font-size: 28px;
+    color: #1a91f5;
+    margin-top: 25px;
+    
+}
+.history{
+    margin-top: 100px;
+}
+.box_lichsu_giaodich_ud{
+    min-height: 370px;
+    box-shadow: 0 0 8px rgba(141,141,141,.3);
+    border-radius: 3px;
+    padding: 15px 20px;
+    background-color: #fff;
+}
