@@ -4,6 +4,7 @@ import SignIn from './components/SignIn';
 import Header from './components/Header'
 import NavT from './components/NavT'
 import Home from "../src/components/home"
+import Account from './components/Account'
 import './App.css';
 import Wallet from "../src/components/wallet"
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
@@ -13,13 +14,15 @@ class App extends Component {
   render() {
     return (
       <div>
-      {/* <SignIn/> */}
-        
         <Header />
-        
-        {/* <NavT /> */}
-        {/* <Home /> */}
-        <Wallet />
+        <div className="container-fluid" style={{ "display": "flex" }}>
+
+
+          <NavT />
+          {/* <Home /> */}
+          <Wallet />
+          {/* <Account /> */}
+        </div>
       </div>
     );
   }

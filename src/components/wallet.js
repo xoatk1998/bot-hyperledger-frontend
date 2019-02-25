@@ -16,14 +16,15 @@ class Wallet extends Component {
         }
         else
             return (
-                <div className="container">
+                <div className="container" style ={{"backgroundColor": "#eaeaea78"}}>
                     <div>
                         {/* <h5>Ví của bạn :</h5> */}
                     </div>
                     <div className=" row justify-content-center">
-                        <div className="col-sm-8 ">
+                        <div className="col-sm-10 ">
                             <div className="box_thongtin_sodu_ud">
                                 <div className="text_tieude_all_ud">Thông tin số dư </div>
+                                <hr style={{"width" :"20%"}}/>
                                 <div className="box_all_tien_user_ud">
                                     Tổng số dư :
                         <em>0 VND</em>
@@ -37,10 +38,12 @@ class Wallet extends Component {
                         </div>
                     </div>
                     <div className=" row justify-content-center">
-                        <div className="col-sm-8 ">
+                        <div className="col-sm-10 ">
                             <div className="box_thongtin_sodu_ud">
-                                <div className="text_tieude_all_ud">Lịch sử giao dịch </div>
-                                <table class="table">
+                                <div className="text_tieude_all_ud" >Lịch sử giao dịch </div>
+                                
+                                <hr style={{"width" :"20%"}}/>
+                                <table className="table" style={{"marginTop" :"20px"}}>
                                     <thead>
                                         <tr>
                                             <th scope="col">Stt</th>
