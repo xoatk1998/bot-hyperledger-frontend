@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import Home from "../components/home"
+// import {BrowserRouter, Link,Router,Route} from "react-router-dom"
 class NavT extends Component{
     render(){
         return(
@@ -6,9 +8,10 @@ class NavT extends Component{
                 <div className="info">
                     <ul>
                         <li>
-                            <a href="#">
-                                <i className="fa fa-home fa-2x"></i>
-                                <span>Home</span>
+                            <a href="/home">
+                                
+                                <i className="fa fa-bank fa-2x align-self-center"></i>
+                                <span>Wallet</span>
                             </a>
                         </li>
                         <li>
@@ -19,8 +22,8 @@ class NavT extends Component{
                         </li>
                         <li>
                             <a href="#">
-                                <i className="fa fa-bank fa-2x align-self-center"></i>
-                                <span>Wallet</span>
+                            <i className="fa fa-home fa-2x"></i>
+                                <span>BOT</span>
                             </a>
                         </li>
                     </ul>
@@ -55,7 +58,7 @@ class NavT extends Component{
                         <li> 
                             <a href="#">
                                 <i className="fa fa-cogs fa-2x"></i>
-                                <span>PayToll</span>
+                                <span>Setting</span>
                             </a>
                         </li>
                     </ul>

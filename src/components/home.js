@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import HeaderHomePage from './HeaderHomePage'
 import Footer from '../components/footer'
 import "../css/home.css";
 import s1_img_right from "../img/wallet-ppl.png";
@@ -19,7 +20,7 @@ class Home extends Component {
         else
             return (
                 <div>
-                    
+                    <HeaderHomePage />
                     <div className="row s1">
                         <div className="col-sm-6 s1-left">
                             <div className="s1-text">

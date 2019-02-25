@@ -5,7 +5,7 @@ import src from '*.jpg';
 import SignIn from "../src/components/SignIn"
 const routes =[
     {
-        path :'/',
+        path :'/home',
         isPublic : true,
         main: <Home />
     },

@@ -5,6 +5,8 @@ import Header from './components/Header'
 import NavT from './components/NavT'
 import Home from "../src/components/home"
 import './App.css';
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import Footer from './components/footer';
 
 class App extends Component {
   render() {
@@ -12,10 +14,11 @@ class App extends Component {
       <div>
       {/* <SignIn/> */}
         
-        {/* <Header /> */}
+        <Header />
         
-        {/* <NavT /> */}
-        <Home />
+        <NavT />
+        {/* <Home /> */}
+        
       </div>
     );
   }

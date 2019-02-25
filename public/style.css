@@ -50,7 +50,9 @@
 .sidenav li {
     margin-bottom: 13%;
 }
-
+ul {
+    margin-top:10px !important;
+}
 .sidenav span {
     font-size: 18px;
     font-weight: 200;
