@@ -11,6 +11,9 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import Footer from './components/footer';
 
 class App extends Component {
+  choosenScreen() {
+    
+  }
   render() {
     return (
       <div>

@@ -9,6 +9,7 @@ class Home extends Component {
         this.state = {
             error: null,
             isLoaded: false,
+            number :2,
 
         };
     }

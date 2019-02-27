@@ -8,24 +8,24 @@ class NavT extends Component{
                 <div className="info">
                     <ul>
                         <li>
-                            <a href="/home">
+                            <a href="/wallet">
                                 
                                 <i className="fa fa-bank fa-2x align-self-center"></i>
                                 <span>Wallet</span>
                             </a>
                         </li>
-                        <li>
+                        {/* <li>
                             <a href="#">
                                 <i className="fa fa-user-circle fa-2x align-self-center"></i>
                                 <span>Account</span>
                             </a>
-                        </li>
-                        <li>
+                        </li> */}
+                        {/* <li>
                             <a href="#">
                             <i className="fa fa-home fa-2x"></i>
                                 <span>BOT</span>
                             </a>
-                        </li>
+                        </li> */}
                     </ul>
                     
                 </div>
