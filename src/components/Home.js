@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import HeaderHomePage from './HeaderHomePage'
-import Footer from '../components/footer'
+import Footer from '../components/Footer'
 import "../css/home.css";
 import s1_img_right from "../img/wallet-ppl.png";
 class Home extends Component {
