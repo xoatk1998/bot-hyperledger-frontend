@@ -10,6 +10,8 @@ import PayIn from './components/PayIn'
 import PayToll from './components/PayToll'
 import './App.css';
 import Wallet from "../src/components/Wallet"
+import Error from "./components/Error"
+import Setting from "./components/Setting"
 import { BrowserRouter, Router, Route, Switch, Redirect } from "react-router-dom";
 import { AppContainer, Navigation, Body, Title } from "./containers";
 import Footer from './components/Footer';

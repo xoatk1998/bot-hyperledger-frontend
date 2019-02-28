@@ -1,8 +1,32 @@
 import React, {Component} from 'react'
-
+import axios from "axios"
+var name="";
 class Account extends Component{
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            error: null,
+            isLoaded: false,
+            number : 1,
+            info :[],
+            
+            
+
+        };
+    }
+    componentWillMount(){
+        axios.get(`http://localhost:3000/api/VehicleOwner/1000`)
+        .then(res=>{
+            const info = res.data;
+            this.setState({info});
+            name = info["profile"]["name"];
+            console.log(name);
+        })
+    }    
     render(){
         return(
+            
             <div className = "container account">
                 <div className="container-fluid row OwnerInfo">
                     <span className="col-3">Thông tin chủ tài khoản</span>
@@ -11,7 +35,8 @@ class Account extends Component{
                             
                             <div className="form-group">
                                 <label>Họ Tên</label>
-                                <input id="fullname" className="form-control" type="text" value="Nguyễn Đức Thiện" readOnly/>
+                                <input id="fullname" className="form-control" type="text" value="Nguyen duc thien" readOnly/>
+                                
                             </div>
                             <div className="form-group">
                                 <label>Địa chỉ</label>
