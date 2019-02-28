@@ -1,4 +1,9 @@
+.container,.container-fluid{
+    margin-right: 0px;
+    padding-right: 0px;
+    overflow-x: hidden;
 
+}
 .header{
     background-color: rgb(0, 74, 124);
     flex: 0 0 60px;
@@ -67,7 +72,7 @@ ul {
     font-weight: bold;
 }
 /* ===================================================================================================== */
-.account {
+.account,.error,.payin {
     background-color: #eaeaea78;
     /* font-family: 'Montserrat', sans-serif; */
     font-family: 'Open Sans', sans-serif;
@@ -89,4 +94,14 @@ ul {
     padding-left: 3%;
     padding-top: 2%;
     padding-bottom: 2%;
+}
+.error {
+    padding-left: 30%;
+    padding-top: 4%;
+}
+
+.error h2 {
+    margin-top: 7%;
+    font-size: 51px;
+    margin-left: -5%;
 }

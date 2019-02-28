@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SignIn from './SignIn';
-import { BrowserRouter as Router, Route, Switch, Redirect, Link } from "react-router-dom";
+
 class HeaderHomePage extends Component{
     render(){
         return(

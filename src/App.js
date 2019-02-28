@@ -10,6 +10,8 @@ import PayIn from './components/PayIn'
 import PayToll from './components/PayToll'
 import './App.css';
 import Wallet from "../src/components/Wallet"
+import Error from "./components/Error"
+import Setting from "./components/Setting"
 import { BrowserRouter, Router, Route, Switch, Redirect } from "react-router-dom";
 import { AppContainer, Navigation, Body, Title } from "./containers";
 import Footer from './components/Footer';
@@ -21,18 +23,20 @@ class App extends Component {
      
         
         <BrowserRouter>
-          <div class="container-fluid" style={{"display":"flex"}}>
-            <NavT />
-            <Switch>
-              <Route path="/" component={Wallet} exact />
-              <Route path="/account" component={Account} />
-              <Route path="/boteam" component={Bot} />
-              <Route path="/payin" component={PayIn} />
-              <Route path="/paytoll" component={PayToll} />
-              <Route path="/account" component={Account} />
-              <Route path="/account" component={Account} />
-              <Route path="/account" component={Account} />
-            </Switch>
+          <div>
+            <Header />
+            <div className="container-fluid" style={{"display":"flex"}}>
+              <NavT />
+              <Switch>
+                <Route path="/" component={Wallet} exact />
+                <Route path="/account" component={Account} />
+                <Route path="/boteam" component={Bot} />
+                <Route path="/payin" component={PayIn} />
+                <Route path="/paytoll" component={PayToll} />
+                <Route path="/setting" component={Setting} />
+                <Route component={Error} />
+              </Switch>
+            </div>
           </div>
         </BrowserRouter>
      
