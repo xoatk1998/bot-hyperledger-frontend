@@ -13,7 +13,7 @@ class Account extends Component {
 
         };
     }
-    componentDidMouOnt(){
+    componentDidMount(){
         let self = this;
         axios.get(`http://localhost:3000/api/VehicleOwner/1000`)
         .then(res=>{
