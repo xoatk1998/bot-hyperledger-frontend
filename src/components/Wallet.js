@@ -14,7 +14,7 @@ class Wallet extends Component {
 
         };
     }
-    componentDidMount(){
+    componentWillMount(){
         axios.get(`http://localhost:3000/api/WalletAccount/200`)
         .then(res=>{
             const info = res.data;
