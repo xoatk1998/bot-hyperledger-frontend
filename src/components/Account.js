@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import axios from "axios"
-var name="";
+
 class Account extends Component{
     
     constructor(props) {
@@ -20,11 +20,13 @@ class Account extends Component{
         .then(res=>{
             const info = res.data;
             this.setState({info});
-            name = info["profile"]["name"];
-            console.log(name);
+            // name = info["profile"]["name"];
+            // console.log(name);
         })
     }    
+    
     render(){
+        let person = this.state.info;
         return(
             
             <div className = "container account">
@@ -36,7 +38,6 @@ class Account extends Component{
                             <div className="form-group">
                                 <label>Họ Tên</label>
                                 <input id="fullname" className="form-control" type="text" value="Nguyen duc thien" readOnly/>
-                                
                             </div>
                             <div className="form-group">
                                 <label>Địa chỉ</label>
