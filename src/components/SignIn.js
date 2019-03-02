@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom'
 class SignIn extends Component {
     constructor(props) {
         super(props);
@@ -6,7 +7,8 @@ class SignIn extends Component {
             error: null,
             isLoaded: false,
             data: null,
-            failed: false
+            failed: false,
+            loggedUser: this.props.status
         };
     }
 
@@ -61,11 +63,18 @@ class SignIn extends Component {
         this.componentDidMount();
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.status !== this.props.status) {
+            this.setState({ loggedUser: nextProps.status });
+        }
+    }
+
     render() {
-        // let loggedUser = localStorage.getItem('user');
-        // if (loggedUser !== null) {
-        //     return <Redirect to="/" />
-        // }
+        let loggedUser = this.state.loggedUser;
+        console.log(loggedUser)
+        if (loggedUser) {
+            return <Redirect to="/" />
+        }
 
         // let className = 'login100-form-error';
         // if (this.state.failed) {
@@ -78,7 +87,7 @@ class SignIn extends Component {
                 <div className="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
                     <form className="login100-form validate-form">
                     
-                        <span className="login100-form-title p-b-49">
+                        {/* <span className="login100-form-title p-b-49">
                             Login
                         </span>
 
@@ -98,18 +107,18 @@ class SignIn extends Component {
                             <a href="#">
                                 Forgot password?
                             </a>
-                        </div>
+                        </div> */}
                         
                         <div className="container-login100-form-btn">
                             <div className="wrap-login100-form-btn">
                                 <div className="login100-form-bgbtn"></div>
-                                <button className="login100-form-btn">
-                                    Login
-                                </button>
+                                <a className="login100-form-btn" href="http://localhost:3000/auth/github">
+                                    Login with Github
+                                </a>
                             </div>
                         </div>
 
-                        <div className="txt1 text-center p-t-54 p-b-20">
+                        {/* <div className="txt1 text-center p-t-54 p-b-20">
                             <span>
                                 Or Sign Up Using
                             </span>
@@ -137,7 +146,7 @@ class SignIn extends Component {
                             <a href="#" className="txt2">
                                 Sign Up
                             </a>
-                        </div>
+                        </div> */}
                     </form>
                 </div>
             </div>
