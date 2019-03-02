@@ -105,3 +105,56 @@ ul {
     font-size: 51px;
     margin-left: -5%;
 }
+.titlePayin,.bodyPayin,.botName{
+    margin-left: 6%;
+    margin-right:5%;
+    margin-top: 3%;
+    width: 83%;
+}
+.titlePayin p{
+    font-size: 28px;
+    font-weight: 300;
+}
+.titlePayin hr {
+    background-color: #19131375;
+}
+.botName{
+    padding: 20px 0px;
+    border-top: 1px dotted rgb(202, 202, 202);
+    border-bottom: 1px dotted rgba(223,223,223,1.00);
+    margin-bottom: 20px;
+    padding-left: 5%;
+    background: linear-gradient(330deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+/* .botName h3{
+    color: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+} */
+.listMoney{
+    list-style: none;
+    margin-bottom: 27px;
+}
+.listMoney a{
+    display: block;
+    padding: 0px 10px;
+    background: #fff;
+    line-height: 24px;
+    margin-right: 11px;
+    position: relative;
+    margin-bottom: 10px;
+    color: #363636;
+    text-decoration: none;
+}
+.charge{
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+    display: inline-block;
+    color: white;
+    font-size: 18px;
+    padding: 0px 25px;
+    line-height: 46px;
+    border-radius: 2px;
+}
