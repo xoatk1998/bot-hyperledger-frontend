@@ -40,7 +40,18 @@ class App extends Component {
   
   render() {
     return (
-      <BrowserRouter>                
+      <BrowserRouter>
+        <Switch>
+          <Route path="/login" exact={false} component={() => <SignIn status={this.state.logged}/>}/>
+          <Route 
+            path="/"
+            exact={false}
+            render={() => this.state.logged ? 
+              <div>
+                <div>
+                  <Header />
+                </div>
+                <BrowserRouter>                
                   <div className="container-fluid" style={{"display":"flex"}}>
                     <NavT />
                     <Switch>
@@ -55,6 +66,12 @@ class App extends Component {
                     </Switch>
                   </div>
                 </BrowserRouter>
+              </div>
+              : <Redirect to="/login"/>
+            }
+          /> 
+        </Switch>     
+      </BrowserRouter>
     );
   }
 }
