@@ -28,6 +28,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.checkWallet();
+  }
+
+  checkWallet = () => {
     Axios.get("http://68.183.187.28:3000/api/wallet", {
       withCredentials: true
     }).then((res) => {
@@ -58,11 +62,11 @@ class App extends Component {
                 </div>
                 <BrowserRouter>
                   <Switch>
-                    <Route path="/register" component={() => <Register wallet={this.state.wallet}/>} />
+                    <Route path="/register" component={() => <Register wallet={this.state.wallet} update={this.checkWallet}/>} />
                     <Route 
                       path="/" 
                       exact={false}
-                      render={() => this.state.wallet === null || this.state.length > 0 
+                      render={() => this.state.wallet === null || this.state.wallet.length > 0 
                         ?
                           <BrowserRouter>                
                             <div className="container-fluid" style={{"display":"flex"}}>
