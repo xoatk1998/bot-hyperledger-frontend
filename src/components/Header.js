@@ -7,7 +7,7 @@ class Header extends Component{
                 <div className="container-fluid col-4 menu">
                     <i className="fa fa-bell-o fa-lg align-self-center" style={{"color":"white","marginRight":"5%"}}></i>
                     <h3 className="col-6 align-self-center">Bạn cần trợ giúp?</h3>
-                    <a className="col-6 align-self-center text-white" href="http://localhost:3000/auth/logout">SignOut</a>
+                    <a className="col-6 align-self-center text-white" href="http://68.183.187.28:3000/auth/logout">SignOut</a>
                 </div>
             </div>
         )

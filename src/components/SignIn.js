@@ -71,9 +71,9 @@ class SignIn extends Component {
 
     render() {
         let loggedUser = this.state.loggedUser;
-        console.log(loggedUser)
+        // console.log(loggedUser)
         if (loggedUser) {
-            return <Redirect to="/" />
+            return <Redirect to="/register" />
         }
 
         // let className = 'login100-form-error';
@@ -112,7 +112,7 @@ class SignIn extends Component {
                         <div className="container-login100-form-btn">
                             <div className="wrap-login100-form-btn">
                                 <div className="login100-form-bgbtn"></div>
-                                <a className="login100-form-btn" href="http://localhost:3000/auth/github">
+                                <a className="login100-form-btn" href="http://68.183.187.28:3000/auth/github">
                                     Login with Github
                                 </a>
                             </div>
