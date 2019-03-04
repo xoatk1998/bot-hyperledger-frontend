@@ -47,6 +47,9 @@ class RegisterVehicle extends Component {
                 console.log(e);
             })
         }
+        else {
+            alert("Bạn phải nhập đầy đủ thông tin!")
+        }
     }
     render(){
         return (
@@ -77,15 +80,15 @@ class RegisterVehicle extends Component {
                         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div className="form-group">
                                 <label>Ngày sản xuất</label>
-                                <input id="fullname" className="form-control" type="text" placeholder="02/06/2006" ref="dateRegistered" />
+                                <input id="fullname" className="form-control" type="date" placeholder="02/06/2006" ref="dateRegistered" />
                             </div>
                             <div className="form-group">
                                 <label>Ngày đăng kí</label>
-                                <input id="fullname" className="form-control" type="text" placeholder="05/08/2006" ref="dateProduced" />
+                                <input id="fullname" className="form-control" type="date" placeholder="05/08/2006" ref="dateProduced" />
                             </div>
                         </div>
                     <div className="form-group">
-                    <button className ="btn btn-primary btn-lg" onClick={()=>this.register()}>DKi</button>
+                    <button className ="btn btn-primary btn-lg" onClick={()=>this.register()}>Đăng kí</button>
                     </div>
 
                     </div>

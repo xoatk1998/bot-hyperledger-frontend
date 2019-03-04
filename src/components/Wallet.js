@@ -2,44 +2,73 @@ import React, { Component } from "react";
 import axios from "axios";
 import History from './History'
 import "../css/wallet.css"
+
+import { css } from '@emotion/core';
+
+import { PacmanLoader } from 'react-spinners';
+
+
+
 class Wallet extends Component {
     constructor(props) {
         super(props);
         this.state = {
             error: null,
-            isLoaded: false,
+            isLoaded: true,
             number : 1,
-            info :[]
+            info :[],
+            accountBalance:null,
+            licensePlate:null,
+
             
 
         };
     }
-    componentWillMount(){
+    componentDidMount(){
         axios.get(`
         http://68.183.187.28:3000/api/WalletAccount`, {
             withCredentials: true
           }).then((res) => {
-            this.setState({info : res.data})
+            this.setState({
+                accountBalance : res.data[0].accountBalance,
+                licensePlate : res.data[0].licensePlate,
+                info : res.data,
+            })
+            console.log(this.state.info)
           })
 
+    }
+    loadingPage(){
+        if (this.state.info.length === 0){
+            return(
+            
+            <PacmanLoader
+            //    css={override}
+              sizeUnit={"px"}
+              size={35}
+              color={'#123abc'}
+              loading= {this.state.isLoaded}
+            />
+            )
+        }
     }
     render() {
         const { error } = this.state;
         if (error) {
             return <div>error</div>
         }
-        else if (this.state.info.length === 0){
-            return( <div>
-                info
-                </div>)
-        }
+        // else if (this.state.info.length === 0){
+        //     return( <div>
+        //         info
+        //         </div>)
+        // }
         else
             return (
-                
                 <div className="container" style ={{"backgroundColor": "#eaeaea78"}}>
-                    <div>
-                        {/* <h5>Ví của bạn :</h5> */}
-                    </div>
+               
+               
+                   
+                    
                     <div className=" row justify-content-center">
                         <div className="col-sm-10 ">
                             <div className="box_thongtin_sodu_ud">
@@ -48,11 +77,12 @@ class Wallet extends Component {
                                 <div className="box_all_tien_user_ud">
                                     Tổng số dư :
                         
-                        <em>{this.state.info["accountBalance"]} VND</em>
+                        <em>{this.state.accountBalance} VND</em>
+                        {/* <em> {this.state.accountBalance}</em> */}
                                 </div>
                                 <div className="box_all_tien_user_ud">
                                     Địa chỉ ví :
-                        <em>{this.state.info["AccountNumber"]}</em>
+                        <em>{this.state.licensePlate}</em>
                                 </div>
 
                             </div>
@@ -61,6 +91,7 @@ class Wallet extends Component {
                     <History />
 
                 </div>
+                
             )
     }
 }
