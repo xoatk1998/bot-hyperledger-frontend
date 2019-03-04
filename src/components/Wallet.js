@@ -15,19 +15,23 @@ class Wallet extends Component {
         };
     }
     componentWillMount(){
-        axios.get(`http://localhost:3000/api/WalletAccount/200`)
-        .then(res=>{
-            const info = res.data;
-            this.setState({info})
-            console.log(res.data);
-        })
+        axios.get(`
+        http://68.183.187.28:3000/api/WalletAccount`, {
+            withCredentials: true
+          }).then((res) => {
+            this.setState({info : res.data})
+          })
 
     }
     render() {
-        
         const { error } = this.state;
         if (error) {
             return <div>error</div>
+        }
+        else if (this.state.info.length === 0){
+            return( <div>
+                info
+                </div>)
         }
         else
             return (

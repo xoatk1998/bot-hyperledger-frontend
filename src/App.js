@@ -13,6 +13,7 @@ import './App.css';
 import Wallet from "../src/components/Wallet"
 import Error from "./components/Error"
 import Setting from "./components/Setting"
+import RegisterVehicle from "./components/RegisterVehicle"
 import { BrowserRouter, Router, Route, Switch, Redirect } from "react-router-dom";
 import { AppContainer, Navigation, Body, Title } from "./containers";
 import Footer from './components/Footer';
@@ -39,7 +40,10 @@ class App extends Component {
       this.setState({
         logged: true,
         wallet: res.data
-      })
+      });
+      // if (this.state.wallet.length == null) console.log("yes");
+      // console.log(this.state.wallet)
+     
     })
     .catch(err => {
       if(err.response.status === 401)
@@ -73,10 +77,17 @@ class App extends Component {
                               <NavT />
                               <Switch>
                                 <Route path="/" render={() => this.state.wallet === [] ? <Redirect to="/register"/> : <Wallet wallet={this.state.wallet}/>} exact />
+                                {/* <Route path="/" render={()=>{
+                                   if (this.state.wallet.length===0) {
+                                    <Redirect to ="/account"/>
+                                  }
+                                  else if (this.state.wal)
+                                }} /> */}
                                 <Route path="/account" component={Account} />
                                 <Route path="/boteam" component={Bot} />
                                 <Route path="/payin" component={PayIn} />
                                 <Route path="/paytoll" component={PayToll} />
+                                <Route path = "/register-vehicle" component={RegisterVehicle}/>
                               </Switch>
                             </div>
                           </BrowserRouter>
