@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import History from './History'
+import RegisterVehicle from './RegisterVehicle'
 import "../css/wallet.css"
 class Wallet extends Component {
     constructor(props) {
@@ -20,6 +21,7 @@ class Wallet extends Component {
             withCredentials: true
           }).then((res) => {
             this.setState({info : res.data})
+            
           })
 
     }
@@ -30,7 +32,8 @@ class Wallet extends Component {
         }
         else if (this.state.info.length === 0){
             return( <div>
-                info
+                    <h3>Bạn chưa có ví, vui lòng đăng kí ví tại đây!</h3>
+                    <RegisterVehicle />
                 </div>)
         }
         else
