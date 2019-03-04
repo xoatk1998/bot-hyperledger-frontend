@@ -2,95 +2,107 @@ import React, { Component } from 'react'
 import axios from "axios"
 
 class Account extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
             error: null,
             isLoaded: false,
-            number: 1,
-            info: [],
+            identityId:0,
+            name:"",
+            address:"",
+            phonenumber:0,
+            email:""
+
 
         };
     }
-    componentDidMount(){
+    componentDidMount() {
         let self = this;
-        axios.get(`http://localhost:3000/api/VehicleOwner/1000`)
-        .then(res=>{
-            const infom = res.data;
-
-            // self.state.info = infom;
-            self.setState({info:infom});
-            console.log(self.state);
+        axios.get("http://68.183.187.28:3000/api/VehicleOwner", {
+            withCredentials: true
+        }).then((res) => {
+            console.log(res.data[0])
+            // this.state.account = res.data[0];
+            // console.log(this.state.account.indentityId)
+            this.setState({
+                name:res.data[0].profile.name,
+                phonenumber:res.data[0].profile.phoneNumber,
+                email:res.data[0].profile.email,
+                identityId:res.data[0].identityId,
+                address:res.data[0].profile.address.street + res.data[0].profile.address.district + res.data[0].profile.address.city,
+            })
+            
+           
         })
     }    
 
     render() {
-     
-        let person = this.state.info;
-        console.log(person);
-        return (
 
-            <div className="container account">
-                <div className="container-fluid row OwnerInfo">
-                    <span className="col-3">Thông tin chủ tài khoản</span>
-                    <div className="col-9 row info">
-                        <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                let person = this.state.info;
+                console.log(person);
+                return(
 
-                            <div className="form-group">
-                                <label>Họ Tên</label>
-                                <input id="fullname" className="form-control" type="text" value="Nguyen duc thien" readOnly />
+            <div className = "container account" >
+                        <div className="container-fluid row OwnerInfo">
+                            <span className="col-3">Thông tin chủ tài khoản</span>
+                            <div className="col-9 row info">
+                                <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 
-                                <p>{this.state.info.$class}</p>
-                            </div>
-                            <div className="form-group">
-                                <label>Địa chỉ</label>
-                                <input id="fullname" className="form-control" type="text" value="Mỹ Đình, Nam Từ Liêm,Hà Nội" readOnly />
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div className="form-group">
-                                <label>Căn cước công dân</label>
-                                <input id="fullname" className="form-control" type="text" value="033098001763" readOnly />
-                            </div>
-                            <div className="form-group">
-                                <label>SĐT</label>
-                                <input id="fullname" className="form-control" type="text" value="0978776056" readOnly />
-                            </div>
-                        </div>
+                                    <div className="form-group">
+                                        <label>Họ Tên</label>
+                                        <input id="fullname" className="form-control" type="text" value={this.state.name} readOnly />
 
-                    </div>
+                                        
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Địa chỉ</label>
+                                        <input id="fullname" className="form-control" type="text" value={this.state.address} readOnly />
+                                    </div>
+                                </div>
+                                <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div className="form-group">
+                                        <label>Căn cước công dân</label>
+                                        <input id="fullname" className="form-control" type="text" value={this.state.identityId} readOnly />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>SĐT</label>
+                                        <input id="fullname" className="form-control" type="text" value={this.state.phonenumber} readOnly />
+                                    </div>
+                                </div>
 
-                </div>
+                            </div>
 
-                <div className="container row VehicleInfo">
-                    <span className="col-3">Thông tin phương tiện</span>
-                    <div className="col-9 row info">
-                        <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-
-                            <div className="form-group">
-                                <label>Biển số xe </label>
-                                <input id="fullname" className="form-control" type="text" value="89E1-42493" readOnly />
-                            </div>
-                            <div className="form-group">
-                                <label>Model</label>
-                                <input id="fullname" className="form-control" type="text" value="Blade" readOnly />
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div className="form-group">
-                                <label>Ngày sản xuất</label>
-                                <input id="fullname" className="form-control" type="text" value="02/06/2006" readOnly />
-                            </div>
-                            <div className="form-group">
-                                <label>Ngày đăng kí</label>
-                                <input id="fullname" className="form-control" type="text" value="05/08/2006" readOnly />
-                            </div>
                         </div>
 
+                        <div className="container row VehicleInfo">
+                            <span className="col-3">Thông tin phương tiện</span>
+                            <div className="col-9 row info">
+                                <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 
-                    </div>
-                </div>
+                                    <div className="form-group">
+                                        <label>Biển số xe </label>
+                                        <input id="fullname" className="form-control" type="text" value="89E1-42493" readOnly />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Model</label>
+                                        <input id="fullname" className="form-control" type="text" value="Blade" readOnly />
+                                    </div>
+                                </div>
+                                <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div className="form-group">
+                                        <label>Ngày sản xuất</label>
+                                        <input id="fullname" className="form-control" type="text" value="02/06/2006" readOnly />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Ngày đăng kí</label>
+                                        <input id="fullname" className="form-control" type="text" value="05/08/2006" readOnly />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
             </div>
         )
 
