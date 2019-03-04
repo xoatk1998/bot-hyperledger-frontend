@@ -35,7 +35,7 @@ class Wallet extends Component {
                 licensePlate : res.data[0].licensePlate,
                 info : res.data,
             })
-            console.log(this.state.info)
+            
           })
 
     }
@@ -79,7 +79,7 @@ class Wallet extends Component {
                                     Tổng số dư :
                         
                         <em>{this.state.accountBalance} VND</em>
-                        {/* <em> {this.state.accountBalance}</em> */}
+                        {/* <em> {this.state.info.accountBalance} VND</em> */}
                                 </div>
                                 <div className="box_all_tien_user_ud">
                                     Địa chỉ ví :

@@ -1,5 +1,25 @@
 import React, { Component } from 'react';
+import axios from "axios";
 class PayIn extends Component {
+    payIn(){
+        if(this.refs.Amount.value !== ""
+        && this.refs.Id.value !== ""){
+            axios.post('http://68.183.187.28:3001/api/PayIn', {
+                "$class": "org.bot.PayIn",
+                "account": "resource:org.bot.WalletAccount#" + this.refs.Id.value,
+                "ammount": this.refs.Amount.value,
+            }).then(res=>{
+                alert("Bạn đã nạp tiền !")
+            }) .catch(e=>{
+                console.log(e);
+            })
+            
+        }
+        else {
+            alert("Bạn phải nhập đầy đủ thông tin!")
+
+        }
+    }
     render() {
         return (
             <div className="container payin">
@@ -17,22 +37,12 @@ class PayIn extends Component {
                 <div className="bodyPayin">
                     <div className="form-group">
                         <label >Nhập thông tin tài khoản nhận tiền</label>
-                        <input type="text" className="form-control" id="licenseVihcle" placeholder="Biển số xe" />
-                        <input type="number" className="form-control" id="amount" placeholder="Số tiền nạp" />
+                        <input type="text" className="form-control" id="licenseVihcle" placeholder="Biển số xe" ref ="Id"/>
+                        <input type="number" className="form-control" id="amount" placeholder="Số tiền nạp" ref="Amount"/>
                     </div>
 
-                    {/* <ul class="fastCharge" class="listMoney">
-                    <li>
-                        <a data-value="100000">100000fdg</a>
-                    </li>
-                    <li>
-                        <a data-value="200000">200000</a>
-                    </li>
-                    <li>
-                        <a data-value="300000">500000</a>
-                    </li>
-                    </ul> */}
-                    <button className="btn charge">NẠP TIỀN</button>
+                    
+                    <button className="btn charge" onClick={()=>this.payIn()}>NẠP TIỀN</button>
                 </div>
 
                 
