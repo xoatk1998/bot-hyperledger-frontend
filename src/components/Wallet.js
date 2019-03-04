@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import History from './History'
+import RegisterVehicle from './RegisterVehicle'
 import "../css/wallet.css"
 
 import { css } from '@emotion/core';
