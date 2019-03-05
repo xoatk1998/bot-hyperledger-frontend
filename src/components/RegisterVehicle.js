@@ -43,7 +43,7 @@ class RegisterVehicle extends Component {
                 ],
             }).then(res=>{
                 console.log(res);
-            }) .catch(e=>{
+            }).catch(e=>{
                 console.log(e);
             })
         }
@@ -68,7 +68,7 @@ class RegisterVehicle extends Component {
                             </div>
                             <div className="form-group">
                             <label>Kiểu xe</label>
-                            <select ref="Type">
+                            <select ref="Type" className="custom-select" style={{"width":"85px", "marginLeft" :"10px"}}>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -76,6 +76,9 @@ class RegisterVehicle extends Component {
                                 <option value="5">5</option>
                             </select>
                         </div>
+                        <div className="form-group">
+                    <button className ="btn btn-primary btn-lg" style={{"marginLeft":"270px"}} onClick={()=>this.register()}>Đăng kí</button>
+                    </div>
                            </div>
                         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div className="form-group">
@@ -86,10 +89,9 @@ class RegisterVehicle extends Component {
                                 <label>Ngày đăng kí</label>
                                 <input id="fullname" className="form-control" type="date" placeholder="05/08/2006" ref="dateProduced" />
                             </div>
+                            
                         </div>
-                    <div className="form-group">
-                    <button className ="btn btn-primary btn-lg" onClick={()=>this.register()}>Đăng kí</button>
-                    </div>
+                    
 
                     </div>
                     

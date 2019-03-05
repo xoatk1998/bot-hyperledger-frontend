@@ -10,7 +10,7 @@ class PayToll extends Component {
                 "account": this.refs.Id.value,
             }).then(res=>{
                 alert("Bạn đã thanh toan !")
-            }) .catch(e=>{
+            }).catch(e=>{
                 console.log(e);
             })
             
@@ -40,11 +40,11 @@ class PayToll extends Component {
                         <label >Xe mua vé :</label>
                         <input type="text" className="form-control" id="licenseVihcle" ref ="Id" />
                         <label >Trạm thu phí :</label>
-                        <input type="text" className="form-control" id="licenseVihcle"  readOnly />
+                        <input type="text" className="form-control" id="licenseVihcle" value="Trạm thu phí Ninh Bình" readOnly />
                         {/* <label >Số tiền :</label>
                         <input type="number" className="form-control" id="licenseVihcle" value="10000" readOnly/> */}
                         <label >Thời gian giao dịch</label>
-                        <input type="time" className="form-control" id="licenseVihcle"  readOnly/>
+                        <input type="text" className="form-control" id="licenseVihcle"  value ="10/10/2019" readOnly/>
                     </div>
 
                    

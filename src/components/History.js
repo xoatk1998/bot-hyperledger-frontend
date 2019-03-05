@@ -41,7 +41,7 @@ class History extends Component {
                                 </table> */}
                         <div style={{ "marginLeft": "30%" }}>
                             <img src={require("../img/no_history.png")} />
-                            <p style={{ "marginLeft": "-5%","marginTop":"2%" }}>Bạn chưa có lịch sử giao dịch</p>
+                            <p style={{ "marginLeft": "-5%","marginTop":"1%" }}>Bạn chưa có lịch sử giao dịch</p>
                         </div>
 
 
