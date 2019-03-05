@@ -1,10 +1,12 @@
+
+
 import React, { Component } from "react";
 import axios from "axios";
 import History from './History'
 import RegisterVehicle from './RegisterVehicle'
 import "../css/wallet.css"
 
-import { css } from '@emotion/core';
+// import { css } from '@emotion/core';
 
 import { PacmanLoader } from 'react-spinners';
 
@@ -18,8 +20,10 @@ class Wallet extends Component {
             isLoaded: true,
             number : 1,
             info :[],
-            accountBalance:null,
+            accountBalance:-1,
             licensePlate:null,
+            calledApi:false,
+            HasWallet:false,
 
             
 
@@ -34,8 +38,9 @@ class Wallet extends Component {
                 accountBalance : res.data[0].accountBalance,
                 licensePlate : res.data[0].licensePlate,
                 info : res.data,
+                calledApi:true,
             })
-            
+            console.log(this.state.info)
           })
 
     }
@@ -63,37 +68,50 @@ class Wallet extends Component {
         //         info
         //         </div>)
         // }
-        else
-            return (
-                <div className="container" style ={{"backgroundColor": "#eaeaea78"}}>
-               
-               
-                   
-                    
-                    <div className=" row justify-content-center">
-                        <div className="col-sm-10 ">
-                            <div className="box_thongtin_sodu_ud">
-                                <div className="text_tieude_all_ud">Thông tin số dư </div>
-                                <hr style={{"width" :"20%"}}/>
-                                <div className="box_all_tien_user_ud">
-                                    Tổng số dư :
-                        
-                        <em>{this.state.accountBalance} VND</em>
-                        {/* <em> {this.state.info.accountBalance} VND</em> */}
+        else{
+            if(this.state.accountBalance==-1) {return <RegisterVehicle calledApi={true} />}
+            if(this.state.calledApi==false) return(
+            
+                <PacmanLoader
+                //    css={override}
+                  sizeUnit={"px"}
+                  size={35}
+                  color={'#123abc'}
+                  loading= {this.state.isLoaded}
+                />
+                )
+            else{
+                if(this.state.info.length == 0 || this.state.accountBalance===undefined) return <RegisterVehicle />
+                else{
+                    return (
+                        <div className="container" style ={{"backgroundColor": "#eaeaea78"}}>
+                            <div className=" row justify-content-center">
+                                <div className="col-sm-10 ">
+                                    <div className="box_thongtin_sodu_ud">
+                                        <div className="text_tieude_all_ud">Thông tin số dư </div>
+                                        <hr style={{"width" :"20%"}}/>
+                                        <div className="box_all_tien_user_ud">
+                                            Tổng số dư :
+                                
+                                <em>{this.state.accountBalance} VND</em>
+                                {/* <em> {this.state.accountBalance}</em> */}
+                                        </div>
+                                        <div className="box_all_tien_user_ud">
+                                            Địa chỉ ví :
+                                <em>{this.state.licensePlate}</em>
+                                        </div>
+        
+                                    </div>
                                 </div>
-                                <div className="box_all_tien_user_ud">
-                                    Địa chỉ ví :
-                        <em>{this.state.licensePlate}</em>
-                                </div>
-
                             </div>
+                            <History />
+        
                         </div>
-                    </div>
-                    <History />
-
-                </div>
-                
-            )
+                        
+                    )
+                }
+            }
+        }
     }
 }
 export default Wallet;
