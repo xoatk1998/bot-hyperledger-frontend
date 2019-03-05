@@ -4,30 +4,30 @@ import axios from "axios"
 import { Redirect } from 'react-router-dom'
 
 class RegisterVehicle extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
-            id : "resource:org.bot.VehicleOwner#",
-            
+            id: "resource:org.bot.VehicleOwner#",
+
         };
     }
-    componentWillMount(){
+    componentWillMount() {
         axios.get(`
         http://68.183.187.28:3000/api/VehicleOwner`, {
-            withCredentials: true
-          }).then((res) => {
-            let data = res.data;
-            this.state.id +=data[0].identityId;
-            console.log(this.state.id);
-          })
+                withCredentials: true
+            }).then((res) => {
+                let data = res.data;
+                this.state.id += data[0].identityId;
+                console.log(this.state.id);
+            })
 
     }
-    register(){
-        if(this.refs.Number.value !== ""
-        && this.refs.Model.value !== ""
-        && this.refs.dateRegistered.value !== ""
-        && this.refs.dateProduced.value !== "") {
+    register() {
+        if (this.refs.Number.value !== ""
+            && this.refs.Model.value !== ""
+            && this.refs.dateRegistered.value !== ""
+            && this.refs.dateProduced.value !== "") {
             axios.post('http://68.183.187.28:3001/api/registerWalletAccount', {
                 "$class": "org.bot.registerWalletAccount",
                 "licensePlate": this.refs.Number.value,
@@ -41,12 +41,12 @@ class RegisterVehicle extends Component {
                 "owners": [
                     this.state.id
                 ],
-            }).then(res=>{
+            }).then(res => {
                 console.log(res);
                 this.setState({
                     finish: true
                 })
-            }).catch(e=>{
+            }).catch(e => {
                 console.log(e);
             })
         }
@@ -54,53 +54,55 @@ class RegisterVehicle extends Component {
             alert("Bạn phải nhập đầy đủ thông tin!")
         }
     }
-    render(){
-        if(this.state.finish){
+    render() {
+        if (this.state.finish) {
             return <Redirect to="/" />
         }
         return (
-            <div className="container row VehicleInfo">
-                    <span className="col-3">Thông tin phương tiện</span>
-                    <div className="col-9 row info">
+            <div className="container regVehicle">
+                <div className="container-fluid row VehicleInfo">
+                    <h5 className="col-4">Đăng kí thông tin phương tiện</h5>
+                    <div className="col-8 row info" style={{"marginTop":"5%","marginLeft":"-15%","paddingTop":"3%"}}>
                         <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 
                             <div className="form-group">
                                 <label>Biển số xe </label>
-                                <input id="fullname" className="form-control" type="text" placeholder="89E1-42493" ref="Number"  />
+                                <input id="fullname" className="form-control" type="text" placeholder="Insert LicensePlate" ref="Number" />
                             </div>
                             <div className="form-group">
                                 <label>Model</label>
-                                <input id="fullname" className="form-control" type="text" placeholder="Blade" ref="Model"  />
+                                <input id="fullname" className="form-control" type="text" defaultValue="SH Mode" ref="Model" />
                             </div>
                             <div className="form-group">
-                            <label>Kiểu xe</label>
-                            <select ref="Type" className="custom-select" style={{"width":"85px", "marginLeft" :"10px"}}>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                                <label>Kiểu xe</label>
+                                <select ref="Type" className="custom-select" defaultValue={1} style={{ "width": "85px", "marginLeft": "10px" }}>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <div className="form-group">
+                                <button className="btn btn-primary btn-lg" style={{ "marginLeft": "270px" }} onClick={() => this.register()}>Đăng kí</button>
+                            </div>
                         </div>
-                        <div className="form-group">
-                    <button className ="btn btn-primary btn-lg" style={{"marginLeft":"270px"}} onClick={()=>this.register()}>Đăng kí</button>
-                    </div>
-                           </div>
                         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div className="form-group">
                                 <label>Ngày sản xuất</label>
-                                <input id="fullname" className="form-control" type="date" placeholder="02/06/2006" ref="dateRegistered" />
+                                <input id="fullname" className="form-control" type="text" defaultValue="02/06/2006" ref="dateRegistered" />
                             </div>
                             <div className="form-group">
                                 <label>Ngày đăng kí</label>
-                                <input id="fullname" className="form-control" type="date" placeholder="05/08/2006" ref="dateProduced" />
+                                <input id="fullname" className="form-control" type="text" defaultValue="05/08/2006" ref="dateProduced" />
                             </div>
-                            
+
                         </div>
-                    
+
 
                     </div>
-                    
+
+                </div>
             </div>
         )
     }
