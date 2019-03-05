@@ -74,7 +74,7 @@ class App extends Component {
                 <div>
                   <Header  name = {this.state.name}/>
                 </div>
-                {this.state.checkName==="Investor01@bot" ? <Investor /> 
+                {this.state.checkName==="teneocto03@bot" ? <Investor /> 
                 : <BrowserRouter>
                   <Switch>
                     <Route path="/register" component={() => <Register wallet={this.state.wallet} update={this.checkWallet}/>} />                   
