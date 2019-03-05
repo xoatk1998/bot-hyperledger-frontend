@@ -51,7 +51,7 @@ class Account extends Component {
     }
     loadWallet() {
         this.setState({ loading: true })
-        axios.get("http://68.183.187.28:3001/api/WalletAccount", {
+        axios.get("http://68.183.187.28:3000/api/WalletAccount", {
             withCredentials: true
         }).then((res) => {
             if (res.data.length === 0) {
