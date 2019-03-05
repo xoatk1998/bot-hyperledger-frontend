@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { toast } from 'react-toastify';
 class PayToll extends Component {
     constructor(props) {
         super(props);
-        this.state={}
+        this.state={
+            numberWallet:0,
+            walletArray:null,
+            licensePlate:0,
+            selectValue:0,
+        }
     }
     
     payToll(){
         if(this.refs.Id.value !== ""){
             this.setState({loading: true})
-            axios.post('http://68.183.187.28:3000/api/PayToll', {
+            axios.post('http://68.183.187.28:3001/api/PayToll', {
                 "$class": "org.bot.PayToll",
                 "account": "resource:org.bot.WalletAccount#" + this.refs.Id.value,
                 },{
@@ -27,7 +33,37 @@ class PayToll extends Component {
 
         }
     }
-    
+    componentDidMount() {
+        toast.success("Wow so easy !");
+        this.setState({loading:true})
+        axios.get("http://68.183.187.28:3001/api/WalletAccount", {
+            withCredentials: true
+        }).then((res) => {
+            this.setState({loading:false})
+            
+            this.setState({
+                walletArray:res.data,
+                licensePlate: res.data[this.state.numberWallet].licensePlate,
+                numberWallet:res.data.length
+            });
+            console.log(this.state.numberWallet)
+        
+        })
+    }
+    renderWallet(){
+        if(this.state.numberWallet===0) return <input type="text" className="form-control" id="licenseVihcle" placeholder="License Plate" />
+        else{
+            let option = this.state.walletArray.map((value,key)=>{
+                return (<option value={value.licensePlate} key={key} style ={{"width":"80%"}}> {value.licensePlate}  </option>)
+            })
+            return( 
+                    <select className="custom-select"  style={{"width":"100%"}} defaultValue={this.state.selectValue} ref ="Id"  >
+                        {option}
+                    </select>
+                  
+            )
+        }
+    }
     render() {
         return (
             <div className="container payin">
@@ -45,7 +81,7 @@ class PayToll extends Component {
                 <div className="bodyPayin">
                     <div className="form-group">
                         <label >Xe mua vé :</label>
-                        <input type="text" className="form-control" id="licenseVihcle" ref ="Id" />
+                        {this.renderWallet()}
                         <label >Trạm thu phí :</label>
                         <input type="text" className="form-control" id="licenseVihcle" value="Trạm thu phí Ninh Bình" readOnly />
                     </div>

@@ -74,7 +74,7 @@ class App extends Component {
                 : <BrowserRouter>
                   <Switch>
                     <Route path="/register" component={() => <Register wallet={this.state.wallet} update={this.checkWallet}/>} />
-                    <Route path="/investor" component={Investor} />
+                    
                              
                     <Route 
                       path="/" 
@@ -98,6 +98,7 @@ class App extends Component {
                                 <Route path="/paytoll" component={PayToll} />
                                 <Route path = "/register-vehicle" component={RegisterVehicle}/>
                                 <Route path="/about" component={Home} />
+                                <Route component={Error} />
                                  </Switch>
                             </div>
                           </BrowserRouter>
