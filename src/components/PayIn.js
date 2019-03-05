@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import axios from "axios";
 class PayIn extends Component {
+    constructor(props) {
+        super(props);
+        this.state={}
+    }
     payIn(){
         if(this.refs.Amount.value !== ""
         && this.refs.Id.value !== ""){
+            this.setState({loading: true})
             axios.post('http://68.183.187.28:3001/api/PayIn', {
                 "$class": "org.bot.PayIn",
                 "account": "resource:org.bot.WalletAccount#" + this.refs.Id.value,
                 "ammount": this.refs.Amount.value,
             }).then(res=>{
                 alert("Bạn đã nạp tiền !")
+                this.setState({loading: false})
             }).catch(e=>{
                 console.log(e);
             })
@@ -45,7 +51,13 @@ class PayIn extends Component {
                     <button className="btn charge" onClick={()=>this.payIn()}>NẠP TIỀN</button>
                 </div>
 
-                
+                {
+                    this.state.loading ?
+                    <div className="position-fixed" style={{'top':'8vh', 'left':'0', 'width': '100vw', 'height': '92vh', 'backgroundColor': '#00000010'}}>
+                        <img className="position-relative" style={{'top': '22vh', 'left': '40vw'}} src={require('./../media/preloader4.gif')}></img>
+                    </div>
+                    : <div/>
+                } 
             </div>
         )
     }
