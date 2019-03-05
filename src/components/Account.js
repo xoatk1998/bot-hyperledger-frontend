@@ -7,7 +7,7 @@ class Account extends Component {
         super(props);
         this.state = {
             error: null,
-            isLoaded: false,
+            isLoaded: null,
             identityId: 0,
             name: "",
             address: "",
@@ -16,6 +16,9 @@ class Account extends Component {
             numberWallet: 0,
             info: [],
             numberVihcle:0,
+            licensePlate:null,
+            model :null,
+
 
 
         };
@@ -26,9 +29,7 @@ class Account extends Component {
         axios.get("http://68.183.187.28:3000/api/VehicleOwner", {
             withCredentials: true
         }).then((res) => {
-            console.log(res.data[0])
-            // this.state.account = res.data[0];
-            // console.log(this.state.account.indentityId)
+            // console.log(res.data[0])
             this.setState({
                 name: res.data[0].profile.name,
                 phonenumber: res.data[0].profile.phoneNumber,
@@ -42,20 +43,26 @@ class Account extends Component {
         axios.get("http://68.183.187.28:3000/api/WalletAccount", {
             withCredentials: true
         }).then((res) => {
+            if (res.data.length===0) {
+                this.setState({isLoaded:false})
+            }else{
             this.setState({
-                // accountBalance : res.data[0].accountBalance,
-                // licensePlate : res.data[0].licensePlate,
-                info: res.data[this.state.numberVihcle]
+                isLoaded : true,
+                info: res.data[this.state.numberVihcle],
+                
+            },
+            ()=>{
+                console.log(this.state.info);
             });
-            console.log(res.data[0].info)
+            console.log(res.data)}
 
         })
     }
 
     render() {
 
-        let person = this.state.info;
-        console.log(person);
+        if (this.state.isLoaded || this.state.isLoaded ===null)
+        
         return (
 
             <div className="container account" >
@@ -102,11 +109,11 @@ class Account extends Component {
 
                                 <div className="form-group">
                                     <label>Biển số xe </label>
-                                    <input  className="form-control" type="text" value={this.state.info.licensePlate} readOnly />
+                                    <input  className="form-control" type="text" defaultValue={this.state.info.licensePlate} readOnly />
                                 </div>
                                 <div className="form-group">
                                     <label>Model</label>
-                                    <input  className="form-control" type="text" value={this.state.info.model} readOnly/>
+                                    <input  className="form-control" type="text" defaultValue={this.state.info.model} readOnly/>
                                 </div>
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -126,7 +133,12 @@ class Account extends Component {
                 </div>
             </div>
         )
-
+        
+    else{
+        return(
+            <div>Ban chua dang ki, quay lai trang wallet de dang ki hoac dang ki theo link sau   <a href="/register-vehicle">Dang ki</a></div>
+        )
+    }
     }
 
 }

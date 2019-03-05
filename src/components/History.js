@@ -6,7 +6,7 @@ class History extends Component {
             <div className=" row justify-content-center">
                 <div className="col-sm-10 ">
                     <div className="box_thongtin_sodu_ud">
-                        <div className="text_tieude_all_ud" >Lịch sử giao dịch </div>
+                        <div className="text_tieude_all_ud" >History Transaction </div>
 
                         <hr style={{ "width": "20%" }} />
                         {/* <table className="table" style={{"marginTop" :"20px"}}>
@@ -41,7 +41,7 @@ class History extends Component {
                                 </table> */}
                         <div style={{ "marginLeft": "30%" }}>
                             <img src={require("../img/no_history.png")} />
-                            <p style={{ "marginLeft": "-5%","marginTop":"1%" }}>Bạn chưa có lịch sử giao dịch</p>
+                            <p style={{ "marginLeft": "-5%","marginTop":"1%" }}>No transaction found</p>
                         </div>
 
 

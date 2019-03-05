@@ -19,7 +19,7 @@ class Wallet extends Component {
             error: null,
             isLoaded: true,
             number : 1,
-            info :[],
+            info :null,
             accountBalance:-1,
             licensePlate:null,
             calledApi:false,
@@ -34,18 +34,28 @@ class Wallet extends Component {
         http://68.183.187.28:3000/api/WalletAccount`, {
             withCredentials: true
           }).then((res) => {
-            this.setState({
-                accountBalance : res.data[0].accountBalance,
-                licensePlate : res.data[0].licensePlate,
-                info : res.data,
-                calledApi:true,
-            })
-            console.log(this.state.info)
+            if(res.data.length > 0)  {
+                this.setState({
+                    accountBalance : res.data[0].accountBalance,
+                    licensePlate : res.data[0].licensePlate,
+                    info : res.data,
+                    calledApi:true,
+                })
+                console.log(this.state.info)                
+            }
+            else {
+                this.setState({
+                    accountBalance : -1,
+                    licensePlate : 'unsete',
+                    info : [],
+                    calledApi:true,
+                })
+            }
           })
 
     }
     loadingPage(){
-        if (this.state.info.length === 0){
+        if (this.state.info === null){
             return(
             
             <PacmanLoader
@@ -69,8 +79,8 @@ class Wallet extends Component {
         //         </div>)
         // }
         else{
-            if(this.state.accountBalance==-1) {return <RegisterVehicle calledApi={true} />}
-            if(this.state.calledApi==false) return(
+            // if(this.state.info) {return <RegisterVehicle calledApi={true} />}
+            if(this.state.info==null) return(
             
                 <PacmanLoader
                 //    css={override}
@@ -81,6 +91,7 @@ class Wallet extends Component {
                 />
                 )
             else{
+                // if (this.state.info !== null)
                 if(this.state.info.length == 0 || this.state.accountBalance===undefined) return <RegisterVehicle />
                 else{
                     return (
@@ -88,16 +99,16 @@ class Wallet extends Component {
                             <div className=" row justify-content-center">
                                 <div className="col-sm-10 ">
                                     <div className="box_thongtin_sodu_ud">
-                                        <div className="text_tieude_all_ud">Thông tin số dư </div>
+                                        <div className="text_tieude_all_ud">Credit Information </div>
                                         <hr style={{"width" :"20%"}}/>
                                         <div className="box_all_tien_user_ud">
-                                            Tổng số dư :
+                                            Account Balance :
                                 
                                 <em>{this.state.accountBalance} VND</em>
                                 {/* <em> {this.state.accountBalance}</em> */}
                                         </div>
                                         <div className="box_all_tien_user_ud">
-                                            Địa chỉ ví :
+                                            License Plate :
                                 <em>{this.state.licensePlate}</em>
                                         </div>
         

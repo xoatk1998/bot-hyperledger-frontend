@@ -10,7 +10,7 @@ class PayIn extends Component {
                 "ammount": this.refs.Amount.value,
             }).then(res=>{
                 alert("Bạn đã nạp tiền !")
-            }) .catch(e=>{
+            }).catch(e=>{
                 console.log(e);
             })
             

@@ -6,8 +6,9 @@ class PayToll extends Component {
         if(this.refs.Id.value !== ""){
             axios.post('http://68.183.187.28:3000/api/PayToll', {
                 "$class": "org.bot.PayToll",
-                // "account": "resource:org.bot.WalletAccount#" + this.refs.Id.value,
-                "account": this.refs.Id.value,
+                "account": "resource:org.bot.WalletAccount#" + this.refs.Id.value,
+                },{
+                withCredentials: true
             }).then(res=>{
                 alert("Bạn đã thanh toan !")
             }).catch(e=>{
@@ -41,8 +42,7 @@ class PayToll extends Component {
                         <input type="text" className="form-control" id="licenseVihcle" ref ="Id" />
                         <label >Trạm thu phí :</label>
                         <input type="text" className="form-control" id="licenseVihcle" value="Trạm thu phí Ninh Bình" readOnly />
-                        {/* <label >Số tiền :</label>
-                        <input type="number" className="form-control" id="licenseVihcle" value="10000" readOnly/> */}
+                       
                         <label >Thời gian giao dịch</label>
                         <input type="text" className="form-control" id="licenseVihcle"  value ="10/10/2019" readOnly/>
                     </div>
