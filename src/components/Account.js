@@ -48,9 +48,6 @@ class Account extends Component {
             console.log(`xe so ${this.state.numberVihcle}`)
             this.loadWallet()
         })
-
-
-
     }
     loadWallet() {        
         this.setState({loading: true})

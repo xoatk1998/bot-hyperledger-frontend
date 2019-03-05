@@ -140,7 +140,7 @@ class Wallet extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <History />
+                            <History licensePlate = {this.state.licensePlate} />
                             {
                                 this.state.loading ?
                                 <div className="position-fixed" style={{'top':'8vh', 'left':'0', 'width': '100vw', 'height': '92vh', 'backgroundColor': '#00000010'}}>
