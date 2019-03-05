@@ -22,7 +22,7 @@ class PayIn extends Component {
                 "ammount": this.refs.Amount.value,
             }).then(res=>{
                 toast.success('🦄 Wow so easy!');
-                alert("Ok");
+                alert("Transaction successful!");
                 this.setState({loading: false})
             }).catch(e=>{
                 console.log(e);

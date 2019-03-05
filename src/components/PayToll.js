@@ -21,7 +21,7 @@ class PayToll extends Component {
                 },{
                 withCredentials: true
             }).then(res=>{
-                alert("Bạn đã thanh toan !")
+                alert("Payment successful!")
                 this.setState({loading: false})
             }).catch(e=>{
                 console.log(e);
