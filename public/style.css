@@ -72,7 +72,7 @@ ul {
     font-weight: bold;
 }
 /* ===================================================================================================== */
-.account,.error,.payin,.regVehicle {
+.account,.error,.payin,.regVehicle,.s1 {
     background-color: #eaeaea78;
     /* font-family: 'Montserrat', sans-serif; */
     font-family: 'Open Sans', sans-serif;

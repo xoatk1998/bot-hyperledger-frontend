@@ -9,12 +9,15 @@
 .s1-s2{
     height: 80px;
 }
+.ss{
+    overflow-y: hidden
+}
 #s1-span{
     margin-left: 60px;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 700;
     line-height: 1.3;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     /* padding-bottom: 50px; */
 }
 #s1-p{
@@ -22,7 +25,7 @@
     margin-top: 50px;
     font-size: 1.5rem;
     opacity: 0.8;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 .s2-img{
     background-image: url('../img/phone.png');
@@ -38,11 +41,12 @@
     height: 650px;
     background-color: #ffffff;
     /* width: 1200px; */
-    padding-top: 160px;
+    padding-top: 2%;
 }
 .s2{
     height: 504px;
     background-color: #232F3B;
+    max-width: 102%;
 }
 .s1-s2{
     
@@ -58,6 +62,9 @@
 }
 .s4{
     height: 360px;
+}
+#s4-icon{
+    padding-left: 6%
 }
 ul{
     margin-top: 100px;
@@ -113,21 +120,24 @@ font-size: 24px;
     }
 .s7-2-1{
     margin-left:5px;
-    font-size: 24px;
+    font-size: 18px;
 
 }
 .s7-2-2{
     margin-left:15px;
-    font-size: 24px;
+    font-size: 18px;
 
 }
 .s7-2-3{
     margin-left:35px;
-    font-size: 24px;
+    font-size: 18px;
 
 }
 .s7-2-4{
     margin-left:45px;
-    font-size: 24px;
+    font-size: 18px;
 
+}
+.col-sm-7.s2-right {
+    padding-top: 8%;
 }
