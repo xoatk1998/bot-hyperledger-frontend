@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 class PayIn extends Component {
     constructor(props) {
         super(props);
@@ -22,6 +22,7 @@ class PayIn extends Component {
                 "ammount": this.refs.Amount.value,
             }).then(res=>{
                 toast.success('🦄 Wow so easy!');
+                alert("Ok");
                 this.setState({loading: false})
             }).catch(e=>{
                 console.log(e);
@@ -34,6 +35,7 @@ class PayIn extends Component {
         }
     }
     componentDidMount() {
+        toast.success("Wow so easy !");
         this.setState({loading:true})
         axios.get("http://68.183.187.28:3000/api/WalletAccount", {
             withCredentials: true

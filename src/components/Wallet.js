@@ -35,7 +35,7 @@ class Wallet extends Component {
     }
     componentDidMount(){
         axios.get(`
-        http://68.183.187.28:3000/api/WalletAccount`, {
+        http://68.183.187.28:3001/api/WalletAccount`, {
             withCredentials: true
           }).then((res) => {
             if(res.data.length > 0)  {
