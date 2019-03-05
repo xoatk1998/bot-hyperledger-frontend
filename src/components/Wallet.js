@@ -77,9 +77,9 @@ class Wallet extends Component {
         if(this.state.walletArray===null) return <div />
         else{
             let option = this.state.walletArray.map((value,key)=>{
-                return (<option value={key} key={key}>  Xe {key + 1}  </option>)
+                return (<option value={key} key={key}>  Vehicle {key + 1}  </option>)
             })
-            return <select className="custom-select" style={{ "width": "85px" }} defaultValue={this.state.selectValue} onChange={(val) => { this.setState({ numberWallet: val.target.value }, () => { this.componentDidMount() }) }} >
+            return <select className="custom-select" style={{ "width": "125px" }} defaultValue={this.state.selectValue} onChange={(val) => { this.setState({ numberWallet: val.target.value }, () => { this.componentDidMount() }) }} >
 
                 {
                     option
@@ -103,14 +103,9 @@ class Wallet extends Component {
         else{
             // if(this.state.info) {return <RegisterVehicle calledApi={true} />}
             if(this.state.info==null) return(
-            
-                <PacmanLoader
-                //    css={override}
-                  sizeUnit={"px"}
-                  size={35}
-                  color={'#123abc'}
-                  loading= {this.state.isLoaded}
-                />
+                <div className="position-fixed" style={{'top':'8vh', 'left':'0', 'width': '100vw', 'height': '92vh', 'backgroundColor': '#00000010'}}>
+                    <img className="position-relative" style={{'top': '22vh', 'left': '40vw'}} src={require('./../media/preloader4.gif')}></img>
+                </div>
                 )
             else{
                 // if (this.state.info !== null)
@@ -146,7 +141,13 @@ class Wallet extends Component {
                                 </div>
                             </div>
                             <History />
-        
+                            {
+                                this.state.loading ?
+                                <div className="position-fixed" style={{'top':'8vh', 'left':'0', 'width': '100vw', 'height': '92vh', 'backgroundColor': '#00000010'}}>
+                                    <img className="position-relative" style={{'top': '22vh', 'left': '40vw'}} src={require('./../media/preloader4.gif')}></img>
+                                </div>
+                                : <div/>
+                            } 
                         </div>
                         
                     )
