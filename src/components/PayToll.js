@@ -42,9 +42,6 @@ class PayToll extends Component {
                         <input type="text" className="form-control" id="licenseVihcle" ref ="Id" />
                         <label >Trạm thu phí :</label>
                         <input type="text" className="form-control" id="licenseVihcle" value="Trạm thu phí Ninh Bình" readOnly />
-                       
-                        <label >Thời gian giao dịch</label>
-                        <input type="text" className="form-control" id="licenseVihcle"  value ="10/10/2019" readOnly/>
                     </div>
 
                    

@@ -10,6 +10,7 @@ import Account from './components/Account'
 import PayIn from './components/PayIn'
 import PayToll from './components/PayToll'
 import './App.css';
+import Investor from "./components/Investor"
 import Wallet from "../src/components/Wallet"
 import Error from "./components/Error"
 import Setting from "./components/Setting"
@@ -67,6 +68,8 @@ class App extends Component {
                 <BrowserRouter>
                   <Switch>
                     <Route path="/register" component={() => <Register wallet={this.state.wallet} update={this.checkWallet}/>} />
+                    <Route path="/investor" component={Investor} />
+                             
                     <Route 
                       path="/" 
                       exact={false}
@@ -89,7 +92,7 @@ class App extends Component {
                                 <Route path="/paytoll" component={PayToll} />
                                 <Route path = "/register-vehicle" component={RegisterVehicle}/>
                                 <Route path="/about" component={Home} />
-                              </Switch>
+                                 </Switch>
                             </div>
                           </BrowserRouter>
                         :
