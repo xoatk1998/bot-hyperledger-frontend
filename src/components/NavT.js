@@ -22,13 +22,7 @@ class NavT extends Component {
                             </NavLink>
 
                         </li>
-                        <li>
-                            <NavLink to="/boteam">
-                                <i className="fa fa-home fa-2x"></i>
-                                <span>BOT</span>
-                            </NavLink>
-
-                        </li>
+                        
                     </ul>
 
                 </div>
@@ -57,7 +51,7 @@ class NavT extends Component {
                         <li>
                             <NavLink to="/about">
                                 <i className="fa fa-users fa-2x"></i>
-                                <span>HyperTeam</span>
+                                <span>BOTeam</span>
                             </NavLink>
 
                         </li>

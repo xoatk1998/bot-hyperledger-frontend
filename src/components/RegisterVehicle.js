@@ -43,6 +43,9 @@ class RegisterVehicle extends Component {
                 ],
             }).then(res=>{
                 console.log(res);
+                this.setState({
+                    finish: true
+                })
             }).catch(e=>{
                 console.log(e);
             })
@@ -52,6 +55,9 @@ class RegisterVehicle extends Component {
         }
     }
     render(){
+        if(this.state.finish){
+            return <Redirect to="/" />
+        }
         return (
             <div className="container row VehicleInfo">
                     <span className="col-3">Thông tin phương tiện</span>
