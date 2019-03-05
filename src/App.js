@@ -25,7 +25,8 @@ class App extends Component {
     super(props);
     this.state = {
       logged: true,
-      wallet: null
+      wallet: null,
+      name :null,
     }
   }
 
@@ -40,7 +41,8 @@ class App extends Component {
       console.log(res.data)
       this.setState({
         logged: true,
-        wallet: res.data
+        wallet: res.data,
+        name : res.data[0].name
       });
       // if (this.state.wallet.length == null) console.log("yes");
       // console.log(this.state.wallet)
@@ -63,7 +65,7 @@ class App extends Component {
             render={() => this.state.logged ? 
               <div>
                 <div>
-                  <Header />
+                  <Header  name = {this.state.name}/>
                 </div>
                 <BrowserRouter>
                   <Switch>
