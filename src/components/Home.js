@@ -20,10 +20,10 @@ class Home extends Component {
         }
         else
             return (
-                <div>
+                <div className="container ss" >
                     
-                    <div className="container s1">
-                        <div className="col-sm-6 s1-left">
+                    <div className="container s1" >
+                        <div className="col-7 s1-left">
                             <div className="s1-text">
                                 <div className="s1-text-title">
                                     <span id="s1-span"> Dịch vụ thu phí BOT</span>
@@ -59,7 +59,7 @@ class Home extends Component {
                     <div className="" id="SECTION7">
                         <div id="s4-icon" className=" s3 justify-content-center">
                             <div className="h-25 row justify-content-center sl">
-                                <div className="col-sm-2 h-100">
+                                <div className="col-sm-3 h-100">
                                     <svg className="s7-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 32" version="1.0" fit=""
                                         height="100px" width="100px" preserveAspectRatio="xMidYMid meet"
                                         fill="rgba(115,104,104,1)">
@@ -68,7 +68,7 @@ class Home extends Component {
                                     <p className="s7-1-1">3750</p>
                                     <p className="s7-2-1">Người sử dụng</p>
                                 </div>
-                                <div className="col-sm-2 h-100">
+                                <div className="col-sm-3 h-100">
                                     <svg className="s7-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" version="1.0" fit=""
                                         height="100px" width="100px" preserveAspectRatio="xMidYMid meet"
                                         fill="rgba(115,104,104,1)">
@@ -78,7 +78,7 @@ class Home extends Component {
                                     <p className="s7-1-2">345</p>
                                     <p className="s7-2-2">Ví đã liên kết</p>
                                 </div>
-                                <div className="col-sm-2 h-100">
+                                <div className="col-sm-3 h-100">
                                     <svg className="s7-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" version="1.0" fit=""
                                         height="100px" width="100px" preserveAspectRatio="xMidYMid meet"
                                         fill="rgba(115,104,104,1)">
@@ -88,7 +88,7 @@ class Home extends Component {
                                     <p className="s7-1-3">451</p>
                                     <p className="s7-2-3">Trạm BOT</p>
                                 </div>
-                                <div className="col-sm-2 h-100">
+                                <div className="col-sm-3 h-100">
                                     <svg className="s7-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" version="1.0" fit=""
                                         height="100px" width="100px" preserveAspectRatio="xMidYMid meet"
                                         fill="rgba(115,104,104,1)">
