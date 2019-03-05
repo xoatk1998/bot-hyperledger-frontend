@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { toast } from 'react-toastify';
+import {Redirect} from 'react-router-dom'
 class PayIn extends Component {
     constructor(props) {
         super(props);
@@ -41,12 +42,19 @@ class PayIn extends Component {
             withCredentials: true
         }).then((res) => {
             this.setState({loading:false})
+            if(res.data.length > 0) {
+                this.setState({
+                    walletArray:res.data,
+                    licensePlate: res.data[this.state.numberWallet].licensePlate,
+                    numberWallet:res.data.length
+                });
+            }
+            else {
+                this.setState({
+                    noWallet: true
+                })
+            }
             
-            this.setState({
-                walletArray:res.data,
-                licensePlate: res.data[this.state.numberWallet].licensePlate,
-                numberWallet:res.data.length
-            });
             console.log(this.state.numberWallet)
         
         })
@@ -66,6 +74,10 @@ class PayIn extends Component {
         }
     }
     render() {
+        if(this.state.noWallet) {
+            return <Redirect to="/register-vehicle" />
+        }
+        // if(this.state.walletArray !== null)
         return (
             <div className="container payin">
                 <div className="titlePayin row">
