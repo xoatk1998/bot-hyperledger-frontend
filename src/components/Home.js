@@ -21,8 +21,8 @@ class Home extends Component {
         else
             return (
                 <div>
-                    <HeaderHomePage />
-                    <div className="row s1">
+                    
+                    <div className="container s1">
                         <div className="col-sm-6 s1-left">
                             <div className="s1-text">
                                 <div className="s1-text-title">
