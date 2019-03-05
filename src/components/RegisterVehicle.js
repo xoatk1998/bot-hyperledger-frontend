@@ -29,7 +29,7 @@ class RegisterVehicle extends Component {
             && this.refs.dateRegistered.value !== ""
             && this.refs.dateProduced.value !== "") {
             this.setState({loading: true})
-            axios.post('http://68.183.187.28:3001/api/registerWalletAccount', {
+            axios.post('http://68.183.187.28:3000/api/registerWalletAccount', {
                 "$class": "org.bot.registerWalletAccount",
                 "licensePlate": this.refs.Number.value,
                 "info": {
@@ -106,8 +106,8 @@ class RegisterVehicle extends Component {
                 </div>
                 {
                     this.state.loading ?
-                    <div class="position-fixed" style={{'top':'8vh', 'left':'0', 'width': '100vw', 'height': '92vh', 'backgroundColor': '#00000010'}}>
-                        <img class="position-relative" style={{'top': '22vh', 'left': '40vw'}} src={require('./../media/preloader4.gif')}></img>
+                    <div className="position-fixed" style={{'top':'8vh', 'left':'0', 'width': '100vw', 'height': '92vh', 'backgroundColor': '#00000010'}}>
+                        <img className="position-relative" style={{'top': '22vh', 'left': '40vw'}} src={require('./../media/preloader4.gif')}></img>
                     </div>
                     : <div/>
                 } 
