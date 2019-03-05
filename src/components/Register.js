@@ -105,26 +105,26 @@ class Register extends Component {
         else return (
             <div style={{"padding": "0 20vw"}}>
                 <div className="container-fluid row OwnerInfo d-flex flex-column col-12 align-items-center">
-                    <h3 className="col-12 text-center pb-5 pt-4">Thông tin tài khoản</h3>
+                    <h3 className="col-12 text-center pb-5 pt-4">Account information</h3>
                     <div className="col-12 row info">
                         <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 
                             <div className="form-group">
-                                <label>Họ Tên</label>
+                                <label>Full name</label>
                                 <input id="fullname" className="form-control" type="text" ref="name"/>
                             </div>
                             <div className="form-group">
-                                <label>Địa chỉ</label>
+                                <label>Address</label>
                                 <input id="fullname" className="form-control" type="text" ref="address"/>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div className="form-group">
-                                <label>Căn cước công dân</label>
+                                <label>Identity ID</label>
                                 <input id="fullname" className="form-control" type="number" ref="identity"/>
                             </div>
                             <div className="form-group">
-                                <label>SĐT</label>
+                                <label>Phone number</label>
                                 <input id="fullname" className="form-control" type="number" ref="phone"/>
                             </div>
                         </div>
@@ -138,16 +138,16 @@ class Register extends Component {
                     {
                         this.state.infoFull
                         ? <div />
-                        : <h5 className="text-danger text-center mb-4">Bạn cần điền đủ thông tin</h5>
+                        : <h5 className="text-danger text-center mb-4">All information needed</h5>
 
                     }
                     {
                         this.state.uniqueId
                         ? <div />
-                        : <h5 className="text-danger text-center mb-4">Căn cước công dân đã đăng ký</h5>
+                        : <h5 className="text-danger text-center mb-4">Identity ID registered</h5>
 
                     }
-                    <button className="btn btn-outline-success btn-lg" onClick={() => this.updateInfo()}>Cập nhật</button>
+                    <button className="btn btn-outline-success btn-lg" onClick={() => this.updateInfo()}>Submit</button>
                 </div>  
                 {
                     this.state.loading ?
