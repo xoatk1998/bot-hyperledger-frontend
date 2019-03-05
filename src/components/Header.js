@@ -16,7 +16,7 @@ class Header extends Component{
                     {/* <h3 className="col-6 align-self-center">Bạn cần trợ giúp?</h3> */}
                     {/* <a className="col-3 align-self-center text-white ">Hello ! user : {this.props.name}</a> */}
                     <a className="col-2 align-self-center text-white ml-1 pl-1 mr-2" href="http://68.183.187.28:3000/auth/logout">SignOut</a>
-                    <a className="col-4 align-self-center text-white pl-5 " >Hello ! user : {this.props.name}</a>
+                    <a className="col-4 align-self-center text-white pl-5 " >{this.props.name ? `user : ${this.props.name}` : ''}</a>
                 </div>
             </div>
         )

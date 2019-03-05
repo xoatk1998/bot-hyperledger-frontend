@@ -39,14 +39,18 @@ class App extends Component {
     Axios.get("http://68.183.187.28:3000/api/wallet", {
       withCredentials: true
     }).then((res) => {
-      console.log("hehe");
-      console.log(res.data[0].name)
+      // console.log("hehe");
+      // console.log(res.data[0].name)
       this.setState({
         logged: true,
-        wallet: res.data,
-        checkName:res.data[0].name,
-        name : res.data[0].name
+        wallet: res.data
       });
+      if(res.data.length > 0) {
+        this.setState({
+          checkName:res.data[0].name,
+          name : res.data[0].name
+        })
+      }
       // if (this.state.wallet.length == null) console.log("yes");
       // console.log(this.state.wallet)
      
@@ -73,8 +77,7 @@ class App extends Component {
                 {this.state.checkName==="Investor01@bot" ? <Investor /> 
                 : <BrowserRouter>
                   <Switch>
-                    <Route path="/register" component={() => <Register wallet={this.state.wallet} update={this.checkWallet}/>} />
-                    
+                    <Route path="/register" component={() => <Register wallet={this.state.wallet} update={this.checkWallet}/>} />                   
                              
                     <Route 
                       path="/" 
