@@ -19,7 +19,7 @@ import { BrowserRouter, Router, Route, Switch, Redirect } from "react-router-dom
 import { AppContainer, Navigation, Body, Title } from "./containers";
 import Footer from './components/Footer';
 import Axios from 'axios';
-
+import { ToastContainer, toast } from 'react-toastify';
 class App extends Component {
   constructor(props) {
     super(props);

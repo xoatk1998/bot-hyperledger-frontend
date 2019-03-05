@@ -32,6 +32,7 @@ class Account extends Component {
         })
     }
     componentDidMount() {
+        this.setState({loading: true})
         let self = this;
         axios.get("http://68.183.187.28:3000/api/VehicleOwner", {
             withCredentials: true
@@ -51,13 +52,15 @@ class Account extends Component {
 
 
     }
-    loadWallet() {
+    loadWallet() {        
+        this.setState({loading: true})
         axios.get("http://68.183.187.28:3000/api/WalletAccount", {
             withCredentials: true
         }).then((res) => {
             if (res.data.length===0) {
                 this.setState({isLoaded:false})
-            }else{
+            }else{                
+            this.setState({loading: false})
             this.setState({
                 isLoaded : true,
                 licensePlate: res.data[this.state.numberVihcle].licensePlate,
@@ -75,9 +78,9 @@ class Account extends Component {
         if (this.state.vehicleArray === null) return <div></div>
         else {
             let option = this.state.vehicleArray.map((value,key) => {
-                return (<option value={key} key={key}>  Xe {key + 1}  </option>)
+                return (<option value={key} key={key}>  Vehicle {key + 1}  </option>)
             })
-            return <select className="custom-select" style={{ "width": "85px" }} defaultValue={this.state.selectValue} onChange={(val) => { this.setState({ numberVihcle: val.target.value }, () => { this.loadWallet() }) }} >
+            return <select className="custom-select ml-3 mt-3" style={{ "width": "125px" }} defaultValue={this.state.selectValue} onChange={(val) => { this.setState({ numberVihcle: val.target.value }, () => { this.loadWallet() }) }} >
 
                 {
                     option
@@ -96,28 +99,28 @@ class Account extends Component {
 
             <div className="container account" >
                 <div className="container-fluid row OwnerInfo">
-                    <span className="col-3">Thông tin chủ tài khoản</span>
+                    <span className="col-3">Vehicle Owner Information</span>
                     <div className="col-9 row info">
                         <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 
                             <div className="form-group">
-                                <label>Họ Tên</label>
+                                <label>Full name</label>
                                 <input id="fullname" className="form-control" type="text" value={this.state.name} readOnly />
 
 
                             </div>
                             <div className="form-group">
-                                <label>Địa chỉ</label>
+                                <label>Addresss</label>
                                 <input id="fullname" className="form-control" type="text" value={this.state.address} readOnly />
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div className="form-group">
-                                <label>Căn cước công dân</label>
+                                <label>Identity ID</label>
                                 <input id="fullname" className="form-control" type="text" value={this.state.identityId} readOnly />
                             </div>
                             <div className="form-group">
-                                <label>SĐT</label>
+                                <label>Phone number</label>
                                 <input id="fullname" className="form-control" type="text" value={this.state.phonenumber} readOnly />
                             </div>
                         </div>
@@ -127,14 +130,14 @@ class Account extends Component {
                 </div>
 
                 <div className="container row VehicleInfo">
-                    <span className="col-3">Thông tin phương tiện</span>
+                    <span className="col-3">Vehicle Information</span>
                     <div className="infoVihcle">
                         {this.renderOptions()}
                         <div className="col-9 row info" style={{ "width": "813px ", "marginLeft": "240px" }}>
                             <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 
                                 <div className="form-group">
-                                    <label>Biển số xe </label>
+                                    <label>License Plate</label>
                                     <input className="form-control" type="text" value={this.state.licensePlate} readOnly />
                                 </div>
                                 <div className="form-group">
@@ -144,11 +147,11 @@ class Account extends Component {
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div className="form-group">
-                                    <label>Ngày sản xuất</label>
+                                    <label>Manufacturing date</label>
                                     <input className="form-control" type="text" value={this.state.dateProduced} readOnly />
                                 </div>
                                 <div className="form-group">
-                                    <label>Ngày đăng kí</label>
+                                    <label>Registering date</label>
                                     <input className="form-control" type="text" value={this.state.dateRegistered} readOnly />
                                 </div>
                             </div>
@@ -157,12 +160,19 @@ class Account extends Component {
                         </div>
                     </div>
                 </div>
+                {
+                    this.state.loading ?
+                    <div className="position-fixed" style={{'top':'8vh', 'left':'0', 'width': '100vw', 'height': '92vh', 'backgroundColor': '#00000010'}}>
+                        <img className="position-relative" style={{'top': '22vh', 'left': '40vw'}} src={require('./../media/preloader4.gif')}></img>
+                    </div>
+                    : <div/>
+                } 
             </div>
         )
         
     else{
         return(
-            <div>Ban chua dang ki, quay lai trang wallet de dang ki hoac dang ki theo link sau   <a href="/register-vehicle">Dang ki</a></div>
+            <h4 className="mt-5 ml-5 d-inline">No vehicle registered <a href="/register-vehicle"><h4>register here</h4></a></h4>
         )
     }
     }

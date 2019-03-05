@@ -31,6 +31,7 @@ class Register extends Component {
         && this.refs.identity.value !== ""
         && this.refs.phone.value !== ""
         && this.refs.email.value !== "") {
+            this.setState({loading: true});
             axios.post('http://68.183.187.28:3001/api/RegisterVehicleOwner', {
                 "$class": "org.bot.RegisterVehicleOwner",
                 "identityId": this.refs.identity.value,
@@ -83,10 +84,12 @@ class Register extends Component {
                     console.log(err.response)
                 })
             }).catch(err => {
-                console.log(err.response.data.error.message.includes("in collection with ID 'Participant:org.bot.VehicleOwner' as the object already exists") > -1)
-                this.setState({
-                    uniqueId: false
-                })
+                if(err.response.data.error.message.includes("in collection with ID 'Participant:org.bot.VehicleOwner' as the object already exists") > -1) {
+                    this.setState({
+                        uniqueId: false,
+                        loading: false
+                    })
+                }
             })
         } 
         else {
@@ -145,7 +148,14 @@ class Register extends Component {
 
                     }
                     <button className="btn btn-outline-success btn-lg" onClick={() => this.updateInfo()}>Cập nhật</button>
-                </div>   
+                </div>  
+                {
+                    this.state.loading ?
+                    <div className="position-fixed" style={{'top':'8vh', 'width': '60vw', 'height': '92vh', 'backgroundColor': '#00000010'}}>
+                        <img className="position-relative" style={{'top': '22vh', 'left': '20vw'}} src={require('./../media/preloader4.gif')}></img>
+                    </div>
+                    : <div/>
+                } 
             </div>
         )
 
