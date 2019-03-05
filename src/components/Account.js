@@ -93,30 +93,30 @@ class Account extends Component {
                 <div className="container row VehicleInfo">
                     <span className="col-3">Thông tin phương tiện</span>
                     <div className="infoVihcle">
-                        <select value={this.state.selectValue} onChange={ (val)=>{this.setState({numberVihcle:val})}} ref="numberVihcle">
+                        {/* <select className ="custom-select" style={{"width" :"85px"}} value={this.state.selectValue} onChange={ (val)=>{this.setState({numberVihcle:val})}} ref="numberVihcle">
                             <option value="0">Xe 1</option>
                             <option value="1">Xe 2</option>
-                        </select> 
-                        <div className="col-9 row info">
+                        </select>  */}
+                        <div className="col-9 row info" style={{"width":"813px ","marginLeft":"240px"}}>
                             <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 
                                 <div className="form-group">
                                     <label>Biển số xe </label>
-                                    <input id="fullname" className="form-control" type="text" value={this.state.info.licensePlate} readOnly />
+                                    <input  className="form-control" type="text" value={this.state.info.licensePlate} readOnly />
                                 </div>
                                 <div className="form-group">
                                     <label>Model</label>
-                                    <input id="fullname" className="form-control" type="text" value={this.state.info.model} readOnly/>
+                                    <input  className="form-control" type="text" value={this.state.info.model} readOnly/>
                                 </div>
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div className="form-group">
                                     <label>Ngày sản xuất</label>
-                                    <input id="fullname" className="form-control" type="text" value="02/06/2006" readOnly />
+                                    <input  className="form-control" type="text" value="02/06/2006" readOnly />
                                 </div>
                                 <div className="form-group">
                                     <label>Ngày đăng kí</label>
-                                    <input id="fullname" className="form-control" type="text" value="05/08/2006" readOnly />
+                                    <input  className="form-control" type="text" value="05/08/2006" readOnly />
                                 </div>
                             </div>
 
