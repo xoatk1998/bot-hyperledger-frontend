@@ -26,7 +26,11 @@ class App extends Component {
     this.state = {
       logged: true,
       wallet: null,
+<<<<<<< HEAD
       checkName:null
+=======
+      name :null,
+>>>>>>> 1d55a8b871c11dcff312be4c6108dde9c714e298
     }
   }
 
@@ -43,7 +47,11 @@ class App extends Component {
       this.setState({
         logged: true,
         wallet: res.data,
+<<<<<<< HEAD
         checkName:res.data[0].name
+=======
+        name : res.data[0].name
+>>>>>>> 1d55a8b871c11dcff312be4c6108dde9c714e298
       });
       // if (this.state.wallet.length == null) console.log("yes");
       // console.log(this.state.wallet)
@@ -66,7 +74,7 @@ class App extends Component {
             render={() => this.state.logged ? 
               <div>
                 <div>
-                  <Header />
+                  <Header  name = {this.state.name}/>
                 </div>
                 {this.state.checkName==="Investor01@bot" ? <Investor /> 
                 : <BrowserRouter>
