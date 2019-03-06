@@ -90,7 +90,7 @@ class RegisterVehicle extends Component {
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div className="form-group">
-                                <label>Manufactoring date</label>
+                                <label>Manufacturing date</label>
                                 <input id="fullname" className="form-control" type="text" defaultValue="02/06/2006" ref="dateRegistered" />
                             </div>
                             <div className="form-group">
