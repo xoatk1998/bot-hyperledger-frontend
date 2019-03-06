@@ -62,12 +62,12 @@ class RegisterVehicle extends Component {
         return (
             <div className="container regVehicle">
                 <div className="container-fluid row VehicleInfo">
-                    <h5 className="col-4">Đăng kí thông tin phương tiện</h5>
+                    <h5 className="col-4">Register vehicle</h5>
                     <div className="col-8 row info" style={{"marginTop":"5%","marginLeft":"-15%","paddingTop":"3%"}}>
                         <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 
                             <div className="form-group">
-                                <label>Biển số xe </label>
+                                <label>License plate</label>
                                 <input id="fullname" className="form-control" type="text" placeholder="Insert LicensePlate" ref="Number" />
                             </div>
                             <div className="form-group">
@@ -75,7 +75,7 @@ class RegisterVehicle extends Component {
                                 <input id="fullname" className="form-control" type="text" defaultValue="SH Mode" ref="Model" />
                             </div>
                             <div className="form-group">
-                                <label>Kiểu xe</label>
+                                <label>Transportation Type</label>
                                 <select ref="Type" className="custom-select" defaultValue={1} style={{ "width": "85px", "marginLeft": "10px" }}>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -85,16 +85,16 @@ class RegisterVehicle extends Component {
                                 </select>
                             </div>
                             <div className="form-group">
-                                <button className="btn btn-primary btn-lg" style={{ "marginLeft": "270px" }} onClick={() => this.register()}>Đăng kí</button>
+                                <button className="btn btn-primary btn-lg" style={{ "marginLeft": "270px" }} onClick={() => this.register()}>Register</button>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div className="form-group">
-                                <label>Ngày sản xuất</label>
+                                <label>Manufactoring date</label>
                                 <input id="fullname" className="form-control" type="text" defaultValue="02/06/2006" ref="dateRegistered" />
                             </div>
                             <div className="form-group">
-                                <label>Ngày đăng kí</label>
+                                <label>Registering date</label>
                                 <input id="fullname" className="form-control" type="text" defaultValue="05/08/2006" ref="dateProduced" />
                             </div>
 
