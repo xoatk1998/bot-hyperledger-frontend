@@ -30,7 +30,7 @@ class PayToll extends Component {
             
         }
         else {
-            alert("Bạn phải nhập đầy đủ thông tin!")
+            alert("Information nedded")
 
         }
     }
@@ -79,25 +79,25 @@ class PayToll extends Component {
             <div className="container payin">
                 <div className="titlePayin row">
                     <hr className="col-4 align-self-center" />
-                    <p className="col-2" style={{"paddingLeft":"2%"}}>  Mua vé</p>
+                    <p className="col-2" style={{"paddingLeft":"2%"}}> Automatic payment</p>
                     <hr className="col-4 align-self-center" />
                 </div>
 
                 <div className="botName row">
                     <i className="fa fa-car fa-2x align-self-center"></i>
-                    <h3 style={{ "marginLeft": "3%" }}>Trạm thu phí Teneocto</h3>
+                    <h3 style={{ "marginLeft": "3%" }}>BOT Teneocto</h3>
                 </div>
 
                 <div className="bodyPayin">
                     <div className="form-group">
-                        <label >Xe mua vé :</label>
+                        <label >License Plate:</label>
                         {this.renderWallet()}
-                        <label >Trạm thu phí :</label>
-                        <input type="text" className="form-control" id="licenseVihcle" value="Trạm thu phí Ninh Bình" readOnly />
+                        <label >Current BOT:</label>
+                        <input type="text" className="form-control" id="licenseVihcle" value="BOT Hanoi - Haiphong" readOnly />
                     </div>
 
                    
-                    <button className="btn charge" onClick={()=>this.payToll()}>Thanh toán</button>
+                    <button className="btn charge" onClick={()=>this.payToll()}>Submit</button>
                 </div>
 
                 {
