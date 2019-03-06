@@ -55,13 +55,6 @@ class NavT extends Component {
                             </NavLink>
 
                         </li>
-                        <li>
-                            <NavLink to="/setting">
-                                <i className="fa fa-cogs fa-2x"></i>
-                                <span>Setting</span>
-                            </NavLink>
-
-                        </li>
                     </ul>
                 </div>
             </div>
